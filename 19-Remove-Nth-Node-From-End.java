@@ -28,23 +28,24 @@ class Solution {
         return dummy.next;
     }
 
-    // public ListNode removeNthFromEnd(ListNode head, int n) {
-    // List<Integer> list = new ArrayList<Integer>();
-    // while ( head != null ){
-    // list.add(head.val);
-    // head = head.next;
-    // }
-    // int pos = list.size() - n;
-    // list.remove(pos);
-    // return createListNodeWithList(list);
-    // }
-    // public ListNode createListNodeWithList(List<Integer> list) {
-    // ListNode dummy = new ListNode(0);
-    // ListNode current = dummy;
-    // for (int val : list) {
-    // current.next = new ListNode(val);
-    // current = current.next;
-    // }
-    // return dummy.next;
-    // }
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        List<Integer> list = new ArrayList<Integer>();
+        while (head != null) {
+            list.add(head.val);
+            head = head.next;
+        }
+        int pos = list.size() - n;
+        list.remove(pos);
+        return createListNodeWithList(list);
+    }
+
+    public ListNode createListNodeWithList(List<Integer> list) {
+        ListNode dummy = new ListNode(0);
+        ListNode current = dummy;
+        for (int val : list) {
+            current.next = new ListNode(val);
+            current = current.next;
+        }
+        return dummy.next;
+    }
 }

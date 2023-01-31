@@ -1,35 +1,36 @@
 class Solution {
 
     // 1ms + 42mb memory beat 72% vs 75%
-    // public int[] applyOperations(int[] a) {
-    // int n = a.length;
-    // int count = 0;
-    // for ( int i = 0 ; i < n-1 ; i++ ){
-    // if ( a[i] == a[i+1] ){
-    // a[i] = a[i] * 2;
-    // a[i+1] = 0;
-    // }
-    // }
-    // moveZeroes(a);
-    // return a;
-    // }
-    // public void moveZeroes(int[] a) {
-    // int n = a.length;
-    // int count = 0;
-    // int j = 0;
-    // for ( int i = 0 ; i < n ; i++ ){
-    // if ( a[i] == 0 ){
-    // count++;
-    // } else {
-    // a[j] = a[i];
-    // j++;
-    // }
-    // }
-    // for ( int i = 0 ; i < count ; i++ ){
-    // a[j] = 0;
-    // j++;
-    // }
-    // }
+    public int[] applyOperations(int[] a) {
+        int n = a.length;
+        int count = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (a[i] == a[i + 1]) {
+                a[i] = a[i] * 2;
+                a[i + 1] = 0;
+            }
+        }
+        moveZeroes(a);
+        return a;
+    }
+
+    public void moveZeroes(int[] a) {
+        int n = a.length;
+        int count = 0;
+        int j = 0;
+        for (int i = 0; i < n; i++) {
+            if (a[i] == 0) {
+                count++;
+            } else {
+                a[j] = a[i];
+                j++;
+            }
+        }
+        for (int i = 0; i < count; i++) {
+            a[j] = 0;
+            j++;
+        }
+    }
 
     // fastest way
     public int[] applyOperations(int[] nums) {

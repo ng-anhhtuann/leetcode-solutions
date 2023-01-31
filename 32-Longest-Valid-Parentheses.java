@@ -31,17 +31,17 @@ class Solution {
     }
 
     // this is slow in some cases
-    // public int longestValidParentheses(String s) {
-    // int maxLength = 0;
-    // for (int i = 0; i < s.length(); i++) {
-    // for (int j = i + 2; j <= s.length(); j += 2) {
-    // if (isValid(s.substring(i, j))) {
-    // maxLength = Math.max(maxLength, j - i);
-    // }
-    // }
-    // }
-    // return maxLength;
-    // }
+    public int longestValidParentheses(String s) {
+        int maxLength = 0;
+        for (int i = 0; i < s.length(); i++) {
+            for (int j = i + 2; j <= s.length(); j += 2) {
+                if (isValid(s.substring(i, j))) {
+                    maxLength = Math.max(maxLength, j - i);
+                }
+            }
+        }
+        return maxLength;
+    }
 
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();

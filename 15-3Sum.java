@@ -1,26 +1,5 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] num) {
-        // List<List<Integer>> ll = new ArrayList<>();
-        // int n = num.length;
-        // if ( n < 3 ) {
-        // return ll;
-        // }
-        // for ( int i = 0; i < n - 2; i++ ){
-        // for ( int j = i+1; j < n - 1; j++ ){
-        // for ( int k = j+1; k < n; k++ ){
-        // if ( num[i] + num[j] + num[k] == 0 ){
-        // List<Integer> list = new ArrayList<>();
-        // list.add(num[i]);
-        // list.add(num[j]);
-        // list.add(num[k]);
-        // Collections.sort(list);
-        // if(!ll.contains(list)) ll.add(list);
-        // }
-        // }
-        // }
-        // }
-        // return ll;
-
         Arrays.sort(num);
         List<List<Integer>> res = new ArrayList<>();
         for (int i = 0; i < num.length - 2; i++) {
@@ -44,5 +23,29 @@ class Solution {
             }
         }
         return res;
+    }
+
+    public List<List<Integer>> threeSum(int[] num) {
+        List<List<Integer>> ll = new ArrayList<>();
+        int n = num.length;
+        if (n < 3) {
+            return ll;
+        }
+        for (int i = 0; i < n - 2; i++) {
+            for (int j = i + 1; j < n - 1; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    if (num[i] + num[j] + num[k] == 0) {
+                        List<Integer> list = new ArrayList<>();
+                        list.add(num[i]);
+                        list.add(num[j]);
+                        list.add(num[k]);
+                        Collections.sort(list);
+                        if (!ll.contains(list))
+                            ll.add(list);
+                    }
+                }
+            }
+        }
+        return ll;
     }
 }

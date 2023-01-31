@@ -41,29 +41,28 @@ class Solution {
     }
 
     // 2-3ms
-    // public boolean isValidSudoku(char[][] board) {
-    // Set<Character> row;
-    // Set<Character> col;
-    // Set<Character> squ;
-    // for (int i = 0; i < 9; i++) {
-    // row = new HashSet<>();
-    // col = new HashSet<>();
-    // squ = new HashSet<>();
-    // for (int j = 0; j < 9; j++) {
-    // if (board[i][j] != '.' && !row.add(board[i][j])) {
-    // return false;
-    // }
-    // if (board[j][i] != '.' && !col.add(board[j][i])) {
-    // return false;
-    // }
-    // int rowIndex = 3 * (i / 3) + j / 3;
-    // int colIndex = 3 * (i % 3) + j % 3;
-    // if (board[rowIndex][colIndex] != '.' && !squ.add(board[rowIndex][colIndex]))
-    // {
-    // return false;
-    // }
-    // }
-    // }
-    // return true;
-    // }
+    public boolean isValidSudoku(char[][] board) {
+        Set<Character> row;
+        Set<Character> col;
+        Set<Character> squ;
+        for (int i = 0; i < 9; i++) {
+            row = new HashSet<>();
+            col = new HashSet<>();
+            squ = new HashSet<>();
+            for (int j = 0; j < 9; j++) {
+                if (board[i][j] != '.' && !row.add(board[i][j])) {
+                    return false;
+                }
+                if (board[j][i] != '.' && !col.add(board[j][i])) {
+                    return false;
+                }
+                int rowIndex = 3 * (i / 3) + j / 3;
+                int colIndex = 3 * (i % 3) + j % 3;
+                if (board[rowIndex][colIndex] != '.' && !squ.add(board[rowIndex][colIndex])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

@@ -20,21 +20,21 @@ class Solution {
     }
 
     // fast 100% memory 40.1mb
-    // public ListNode middleNode(ListNode head) {
-    // int count = 0;
-    // List<Integer> a = new ArrayList<>();
-    // while ( head != null ){
-    // a.add(head.val);
-    // count++;
-    // head = head.next;
-    // }
-    // int mid = count/2;
-    // ListNode dum = new ListNode(0);
-    // ListNode res = dum;
-    // for ( int i = mid; i < count; i++ ){
-    // res.next = new ListNode(a.get(i));
-    // res = res.next;
-    // }
-    // return dum.next;
-    // }
+    public ListNode middleNode(ListNode head) {
+        int count = 0;
+        List<Integer> a = new ArrayList<>();
+        while (head != null) {
+            a.add(head.val);
+            count++;
+            head = head.next;
+        }
+        int mid = count / 2;
+        ListNode dum = new ListNode(0);
+        ListNode res = dum;
+        for (int i = mid; i < count; i++) {
+            res.next = new ListNode(a.get(i));
+            res = res.next;
+        }
+        return dum.next;
+    }
 }

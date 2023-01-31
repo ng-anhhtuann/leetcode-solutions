@@ -1,29 +1,29 @@
 class Solution {
     // O(n/2)
-    // public int[] searchRange(int[] a, int target) {
-    // int n = a.length;
-    // int[] res = new int[2];
-    // res[0] = -1;
-    // res[1] = -1;
-    // if (n == 0){
-    // return res;
-    // }
-    // int l = 0;
-    // int r = n-1;
-    // while (l < r){
-    // if ( a[l] == target ) {
-    // res[0] = l;
-    // } else {
-    // l++;
-    // }
-    // if ( a[r] == target){
-    // res[1] = r;
-    // } else {
-    // r--;
-    // }
-    // }
-    // return res;
-    // }
+    public int[] searchRange(int[] a, int target) {
+        int n = a.length;
+        int[] res = new int[2];
+        res[0] = -1;
+        res[1] = -1;
+        if (n == 0) {
+            return res;
+        }
+        int l = 0;
+        int r = n - 1;
+        while (l < r) {
+            if (a[l] == target) {
+                res[0] = l;
+            } else {
+                l++;
+            }
+            if (a[r] == target) {
+                res[1] = r;
+            } else {
+                r--;
+            }
+        }
+        return res;
+    }
 
     // O(log(n))
     public int[] searchRange(int[] a, int target) {

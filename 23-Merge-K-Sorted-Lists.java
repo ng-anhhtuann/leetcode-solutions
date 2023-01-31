@@ -50,73 +50,74 @@ class Solution {
     }
 
     // ====================================2nd
-    // public ListNode mergeKLists(ListNode[] lists) {
-    // List<Integer> values = new ArrayList<>();
-    // for (ListNode head : lists) {
-    // while (head != null) {
-    // values.add(head.val);
-    // head = head.next;
-    // }
-    // }
-    // Collections.sort(values);
-    // ListNode dummy = new ListNode();
-    // ListNode tail = dummy;
-    // for (int val : values) {
-    // tail.next = new ListNode(val);
-    // tail = tail.next;
-    // }
-    // return dummy.next;
-    // }
+    public ListNode mergeKLists(ListNode[] lists) {
+        List<Integer> values = new ArrayList<>();
+        for (ListNode head : lists) {
+            while (head != null) {
+                values.add(head.val);
+                head = head.next;
+            }
+        }
+        Collections.sort(values);
+        ListNode dummy = new ListNode();
+        ListNode tail = dummy;
+        for (int val : values) {
+            tail.next = new ListNode(val);
+            tail = tail.next;
+        }
+        return dummy.next;
+    }
 
     // ================================================worst way
-    // public ListNode mergeKLists(ListNode[] lists) {
-    // int len = lists.length;
-    // if ( len == 0 ) {
-    // ListNode head = new ListNode();
-    // head = null;
-    // return head;
-    // }
-    // if ( len == 1 ) {
-    // return lists[0];
-    // }
-    // ListNode res = lists[0];
-    // for ( int i = 1; i < len; i++){
-    // res = mergeTwoLists(res,lists[i]);
-    // }
-    // return res;
-    // }
-    // public ListNode mergeTwoLists(ListNode a, ListNode b) {
-    // if (a == null && b != null){
-    // return b;
-    // } else if (a != null && b == null){
-    // return a;
-    // } else if (a == null && b == null){
-    // return a;
-    // } else {
-    // ListNode dummy = new ListNode(0);
-    // ListNode res = dummy;
-    // while ( a != null || b != null ){
-    // if ( b == null ){
-    // res.next = new ListNode(a.val);
-    // res = res.next;
-    // a = a.next;
-    // } else if ( a == null ){
-    // res.next = new ListNode(b.val);
-    // res = res.next;
-    // b = b.next;
-    // } else {
-    // if ( a.val > b.val ){
-    // res.next = new ListNode(b.val);
-    // res = res.next;
-    // b = b.next;
-    // } else {
-    // res.next = new ListNode(a.val);
-    // res = res.next;
-    // a = a.next;
-    // }
-    // }
-    // }
-    // return dummy.next;
-    // }
-    // }
+    public ListNode mergeKLists(ListNode[] lists) {
+        int len = lists.length;
+        if (len == 0) {
+            ListNode head = new ListNode();
+            head = null;
+            return head;
+        }
+        if (len == 1) {
+            return lists[0];
+        }
+        ListNode res = lists[0];
+        for (int i = 1; i < len; i++) {
+            res = mergeTwoLists(res, lists[i]);
+        }
+        return res;
+    }
+
+    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+        if (a == null && b != null) {
+            return b;
+        } else if (a != null && b == null) {
+            return a;
+        } else if (a == null && b == null) {
+            return a;
+        } else {
+            ListNode dummy = new ListNode(0);
+            ListNode res = dummy;
+            while (a != null || b != null) {
+                if (b == null) {
+                    res.next = new ListNode(a.val);
+                    res = res.next;
+                    a = a.next;
+                } else if (a == null) {
+                    res.next = new ListNode(b.val);
+                    res = res.next;
+                    b = b.next;
+                } else {
+                    if (a.val > b.val) {
+                        res.next = new ListNode(b.val);
+                        res = res.next;
+                        b = b.next;
+                    } else {
+                        res.next = new ListNode(a.val);
+                        res = res.next;
+                        a = a.next;
+                    }
+                }
+            }
+            return dummy.next;
+        }
+    }
 }

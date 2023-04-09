@@ -18,10 +18,10 @@ class Solution {
         int n = inorder.length;
         if (n == 0)
             return null;
-        return buildTreeHelper(inorder, postorder, 0, n - 1, 0, n - 1);
+        return helper(inorder, postorder, 0, n - 1, 0, n - 1);
     }
 
-    private TreeNode buildTreeHelper(int[] inorder, int[] postorder, int inStart, int inEnd, int postStart,
+    private TreeNode helper(int[] inorder, int[] postorder, int inStart, int inEnd, int postStart,
             int postEnd) {
         if (inStart > inEnd)
             return null;
@@ -31,8 +31,8 @@ class Solution {
         while (inorder[inRootIndex] != rootVal)
             inRootIndex++;
         int leftSize = inRootIndex - inStart;
-        root.left = buildTreeHelper(inorder, postorder, inStart, inRootIndex - 1, postStart, postStart + leftSize - 1);
-        root.right = buildTreeHelper(inorder, postorder, inRootIndex + 1, inEnd, postStart + leftSize, postEnd - 1);
+        root.left = helper(inorder, postorder, inStart, inRootIndex - 1, postStart, postStart + leftSize - 1);
+        root.right = helper(inorder, postorder, inRootIndex + 1, inEnd, postStart + leftSize, postEnd - 1);
         return root;
     }
 

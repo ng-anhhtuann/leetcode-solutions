@@ -1,10 +1,16 @@
 class Solution {
-    /**
-     * bit manipulating
-     * true: 1000 & 0111 == 0
-     * false: 1011 & 1010 == 1010 != 0
-     */
-    public boolean isPowerOfTwo(int n) {
-        return n > 0 && (n & (n - 1)) == 0;
+    /** 1107 / 1109 test case */
+    // public boolean isPowerOfTwo(int n) {
+    //     double logRes = Math.log(n) / Math.log(2);
+    //     return Math.ceil(logRes) == Math.floor(logRes);
+    // }
+
+    /**AC */
+    public boolean isPowerOfTwo(int n){
+        if (n <= 0) {
+            return false;
+        }
+        return (n & (n - 1)) == 0;
     }
+
 }

@@ -14,13 +14,13 @@ class Solution {
     /** Approach
      Minus and add inside
      */
-    // public int missingNumber(int[] a) {
-    //     int n = a.length;
-    //     int sum = n;
-    //     for ( int i = 0 ; i < n ; i++){
-    //         sum += i;
-    //         sum -= a[i];
-    //     }
-    //     return sum;
-    // }
+     public int missingNumber(int[] a) {
+         int n = a.length;
+         int sum = n;
+         for ( int i = 0 ; i < n ; i++){
+             sum += i;
+             sum -= a[i];
+         }
+         return sum;
+     }
 }

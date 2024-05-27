@@ -12,4 +12,22 @@ class Solution {
         }
         return a;
     }
+
+    /**
+     * New solution
+     * @param a
+     * @param target
+     * @return
+     */
+    public int[] twoSum(int[] a, int target) {
+        int n = a.length;
+        for (int i = 1; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                if (a[j] + a[j - i] == target) {
+                    return new int[] { j, j - i };
+                }
+            }
+        }
+        return null;
+    }
 }

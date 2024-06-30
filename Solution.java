@@ -1,13 +1,27 @@
 class Solution {
-    public List<String> splitWordsBySeparator(List<String> w, char s) {
-        List<String> res = new ArrayList<>();
-        for (int i = 0 ; i < w.size(); i++ ){
-            String[] tmp = w.get(i).split("\\"+String.valueOf(s));
-            for ( String j : tmp ){
-                if ( j.length() != 0) res.add(j);
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        int operations = 0;
+
+        for (int i = 0; i <= n - 3; i++) {
+            if (nums[i] == 0) {
+                flip(nums, i);
+                operations++;
             }
         }
-        // System.gc();
-        return res;
+
+        for (int num : nums) {
+            if (num == 0) {
+                return -1;
+            }
+        }
+
+        return operations;
+    }
+
+    private void flip(int[] nums, int start) {
+        for (int i = start; i < start + 3; i++) {
+            nums[i] = 1 - nums[i];
+        }
     }
 }

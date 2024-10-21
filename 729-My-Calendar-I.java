@@ -23,3 +23,19 @@ class MyCalendar {
  */
 
 // 19-30 33-51 53-63 75-92 97-100
+
+import java.util.*;
+
+class MyCalendar {
+    List<int[]> cal;
+    public MyCalendar() {
+        cal = new ArrayList<>();
+    }
+
+    public boolean book(int start, int end) {
+        for (int[] i : cal)
+            if (start < i[1] && end > i[0]) return false;
+        cal.add(new int[]{start, end});
+        return true;
+    }
+}

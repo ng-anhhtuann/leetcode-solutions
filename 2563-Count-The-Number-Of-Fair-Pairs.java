@@ -1,14 +1,24 @@
 class Solution {
-    public long countFairPairs(int[] nums, int lower, int upper) {
-        int n = nums.length;
-        long res = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (nums[i] + nums[j] >= lower && nums[i] + nums[j] <= upper) {
-                    res++;
-                }
-            }
+
+    long find(int[] a, int l, int r, int t) {
+        while (l <= r) {
+            int m = l + ((r - l) / 2);
+            if (a[m] >= t)
+                r = m - 1;
+            else
+                l = m + 1;
         }
-        return res;
+        return l;
+    }
+
+    long countFairPairs(int[] a, int lower, int upper) {
+        Arrays.sort(a);
+        long ans = 0;
+        for (int i = 0; i < a.length; i++) {
+            long l = find(a, i + 1, a.length - 1, lower - a[i]);
+            long r = find(a, i + 1, a.length - 1, upper - a[i] + 1);
+            ans += 1 * (r - l);
+        }
+        return ans;
     }
 }

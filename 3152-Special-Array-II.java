@@ -13,9 +13,6 @@ class Solution {
             }
         }
 
-        for (int i : d)
-            System.out.print(i + " ");
-
         for (int i = 0; i < q.length; i++) {
             int l = q[i][0];
             int r = q[i][1];

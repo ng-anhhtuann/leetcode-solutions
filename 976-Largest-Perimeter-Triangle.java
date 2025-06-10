@@ -1,9 +1,9 @@
 class Solution {
-    public int largestPerimeter(int[] A) {
-        Arrays.sort(A);
-        for (int i = A.length - 1; i > 1; --i)
-            if (A[i] < A[i - 1] + A[i - 2])
-                return A[i] + A[i - 1] + A[i - 2];
+    public int largestPerimeter(int[] a) {
+        Arrays.sort(a);
+        for (int i = a.length - 1; i > 1; --i)
+            if (a[i] < a[i - 1] + a[i - 2])
+                return a[i] + a[i - 1] + a[i - 2];
         return 0;
     }
 }

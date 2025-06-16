@@ -30,3 +30,17 @@ class Solution {
         return dp[0][0];
     }
 }
+
+class Solution {
+    public int minimumTotal(List<List<Integer>> tg) {
+        int n = tg.size();
+        int[][] d = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            d[n - 1][i] = tg.get(n - 1).get(i);
+        }
+        for (int i = n - 2; i >= 0; i--)
+            for (int j = 0; j <= i; j++)
+                d[i][j] = Math.min(d[i + 1][j], d[i + 1][j + 1]) + tg.get(i).get(j);
+        return d[0][0];
+    }
+}

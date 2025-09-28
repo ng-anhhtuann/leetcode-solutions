@@ -4,6 +4,7 @@ class Solution {
         Arrays.sort(a);
         int[][] d = new int[n / 3][3];
         int r = 0;
+
         for (int i = 0; i < n; i = i + 3) {
             if (a[i + 2] - a[i] > k)
                 return new int[0][0];

@@ -1,12 +1,10 @@
 class Solution {
-    public int[] sortByBits(int[] arr) {
-        for(int i = 0; i < arr.length; i++){
-            arr[i] += Integer.bitCount( arr[i]) * 10001;
-        }
-        Arrays.sort(arr);
-        for(int i = 0; i < arr.length;i++) {
-            arr[i] = arr[i] % 10001;
-        }
-        return arr;
+    public int[] sortByBits(int[] a) {
+        for (int i = 0; i < a.length; i++)
+            a[i] += Integer.bitCount(a[i]) * 10001;
+        Arrays.sort(a);
+        for (int i = 0; i < a.length; i++)
+            a[i] = a[i] % 10001;
+        return a;
     }
 }
